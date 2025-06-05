@@ -42,7 +42,7 @@ A professional user registration, login, and profile management web application 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/AdminPanel.git
+git clone https://github.com/jalilkhan625/AdminPanel.git
 cd AdminPanel
 ```
 
@@ -54,7 +54,7 @@ Update your `appsettings.json`:
 
 ```json
 "ConnectionStrings": {
-  "DefaultConnection": "Host=localhost;Port=5432;Database=Admin_db;Username=postgres;Password=jalil625"
+  "DefaultConnection": "Host=localhost;Port=5432;Database=Admin_db;Username=replace with yours;Password=replace with yours"
 }
 ```
 
