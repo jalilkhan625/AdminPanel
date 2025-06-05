@@ -3,34 +3,39 @@
     ViewData["Title"] = "Login";
 }
 
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <h2 class="text-center mb-4">Login</h2>
+<link rel="stylesheet" href="~/css/login.css" />
+<link rel="stylesheet" href="~/css/toast.css" />
 
-            <form asp-action="Login" method="post">
-                <div class="form-group mb-3">
-                    <label asp-for="Email"></label>
-                    <input asp-for="Email" class="form-control" />
-                    <span asp-validation-for="Email" class="text-danger"></span>
-                </div>
+@if (TempData["LoginError"] != null)
+{
+    <div id="login-error" style="display:none">@TempData["LoginError"]</div>
+}
 
-                <div class="form-group mb-3">
-                    <label asp-for="Password"></label>
-                    <input asp-for="Password" class="form-control" />
-                    <span asp-validation-for="Password" class="text-danger"></span>
-                </div>
+<div class="login-container">
+    <h2 class="text-center mb-4">Login</h2>
 
-                <button type="submit" class="btn btn-success w-100">Login</button>
-
-                <div class="mt-3 text-center">
-                    <small>Don't have an account? <a asp-action="Register">Register here</a></small>
-                </div>
-            </form>
+    <form asp-action="Login" method="post">
+        <div class="form-group mb-3">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" class="form-control custom-input" />
+            <span asp-validation-for="Email" class="text-danger"></span>
         </div>
-    </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" class="form-control custom-input" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-dark w-100 custom-btn">Login</button>
+
+        <div class="mt-4 text-center">
+            <small>Don't have an account? <a asp-action="Register" class="link-bold">Register here</a></small>
+        </div>
+    </form>
 </div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/auth-feedback.js"></script>
 }
