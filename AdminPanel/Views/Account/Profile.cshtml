@@ -1,0 +1,44 @@
+﻿@model AdminPanel.Models.ProfileViewModel
+
+@{
+    ViewData["Title"] = "Your Profile";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <h2 class="text-center mb-4">Manage Your Profile</h2>
+
+            <form asp-action="Profile" method="post" enctype="multipart/form-data">
+                <div class="form-group mb-3">
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="ProfileImageFile">Upload Profile Picture</label>
+                    <input asp-for="ProfileImageFile" type="file" class="form-control" />
+                    @if (!string.IsNullOrEmpty(Model.CurrentImage))
+                    {
+                        <div class="mt-2">
+                            <img src="~/uploads/@Model.CurrentImage" class="img-thumbnail" style="max-height: 150px;" />
+                        </div>
+                    }
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="NewPassword">New Password (optional)</label>
+                    <input asp-for="NewPassword" type="password" class="form-control" />
+                    <span asp-validation-for="NewPassword" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Update Profile</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
