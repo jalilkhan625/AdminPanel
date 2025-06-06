@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Users";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+<link href="~/css/dashboard.css" rel="stylesheet" />
+
+<div class="d-flex">
+    @Html.Partial("_Sidebar")
+
+    <div class="dashboard-content">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold">Users</h2>
+            <a href="#" class="btn btn-primary"><i class="bi bi-plus-circle me-1"></i> Add User</a>
+        </div>
+
+        <table class="table table-hover align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>E-mail</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @* Replace with a loop when model is added *@
+                @foreach (var user in new[] {
+                new { Name = "jmeno_prijemeni", Email = "smthng@smwhr.com" },
+                new { Name = "randomnick", Email = "smthng@smwhr.com" },
+                new { Name = "admin", Email = "smthng@smwhr.com" },
+                new { Name = "user001", Email = "smthng@smwhr.com" },
+                new { Name = "user002", Email = "smthng@smwhr.com" }
+                })
+                {
+                    <tr>
+                        <td>
+                            <span class="badge rounded-circle bg-danger text-white" style="width: 40px; height: 40px; font-size: 0.9rem; display: inline-flex; align-items: center; justify-content: center;">
+                                DK
+                            </span>
+                        </td>
+                        <td class="fw-semibold">@user.Name</td>
+                        <td>@user.Email</td>
+                        <td class="text-end">
+                            <a href="#" class="btn btn-outline-primary btn-sm me-2">Edit</a>
+                            <button class="btn btn-outline-danger btn-sm">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

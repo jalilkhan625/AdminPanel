@@ -83,7 +83,7 @@ namespace AdminPanel.Controllers
             var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity));
 
-            return RedirectToAction("Profile");
+            return RedirectToAction("Dashboard", "Dashboard");
         }
 
         // POST: /Account/Logout
